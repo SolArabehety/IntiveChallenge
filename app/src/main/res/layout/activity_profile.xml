@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activities.ProfileActivity">
+
+    <View
+        android:id="@+id/backgroundColor"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/profile_header_height"
+        android:background="@color/gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@android:color/transparent"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextAppearance="@style/TitleBarTextAppearance" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ivProfile"
+        android:layout_width="@dimen/profile_image_size"
+        android:layout_height="@dimen/profile_image_size"
+        android:layout_marginBottom="8dp"
+        android:scaleType="centerCrop"
+        app:civ_border_color="@android:color/white"
+        app:civ_border_width="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/backgroundColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backgroundColor" />
+
+    <TextView
+        android:id="@+id/tvNameComplete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/font_semibold"
+        android:textColor="@color/gray_dark"
+        android:textSize="@dimen/text_size_medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivProfile" />
+
+    <TextView
+        android:id="@+id/tvUsernameTitle"
+        style="@style/textStyleFieldName"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/username"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNameComplete" />
+
+    <TextView
+        android:id="@+id/tvUsername"
+        style="@style/textStyleFieldContent"
+        app:layout_constraintStart_toStartOf="@+id/tvUsernameTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvUsernameTitle" />
+
+    <TextView
+        android:id="@+id/tvEmailTitle"
+        style="@style/textStyleFieldName"
+        android:text="@string/email"
+        app:layout_constraintStart_toStartOf="@+id/tvUsernameTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvUsername" />
+
+    <TextView
+        android:id="@+id/tvEmail"
+        style="@style/textStyleFieldContent"
+        app:layout_constraintStart_toStartOf="@+id/tvUsernameTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvEmailTitle" />
+
+
+</android.support.constraint.ConstraintLayout>
