@@ -8,7 +8,7 @@ import com.solarabehety.intivechallenge.repository.persistence.AppDatabase
 
 
 /**
- * Created by Sol Arabehety on 5/29/2018.
+ * Created by Sol Arabehety on 6/17/2018.
  */
 class UserProfileViewModel(val user: User) : ViewModel(), ViewModelProvider.Factory {
 

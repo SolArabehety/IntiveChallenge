@@ -10,7 +10,7 @@ import android.os.StrictMode
 
 
 /**
- * Created by Sol Arabehety on 6/12/2018.
+ * Created by Sol Arabehety on 6/17/2018.
  */
 class IntiveApplication : Application() {
     init {

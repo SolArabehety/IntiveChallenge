@@ -33,7 +33,7 @@ import kotlinx.android.synthetic.main.fragment_profile_list.*
 
 
 /**
- * Created by Sol Arabehety on 6/12/2018.
+ * Created by Sol Arabehety on 6/17/2018.
  */
 class UsersListFragment : Fragment() {
     private lateinit var viewModel: UsersListViewModel
@@ -57,7 +57,7 @@ class UsersListFragment : Fragment() {
 
         viewModel = usersViewModel()
         viewModel.users.observe(this, Observer<List<User>> {
-            Log.i("OBSERVER", "OK")
+            progressBar.visibility = View.GONE
             updateUI(it)
         })
     }
@@ -101,7 +101,11 @@ class UsersListFragment : Fragment() {
         recyclerView.addItemDecoration(GridItemDecoration(resources.getDimensionPixelOffset(R.dimen.grid_divider)))
         setupScrollListener()
 
-        btnRetry.setOnClickListener { _ -> viewModel.findUsers() }
+        btnRetry.setOnClickListener { _ ->
+            progressBar.visibility = View.VISIBLE
+            showNoUsersLayout(false)
+            viewModel.findUsers()
+        }
     }
 
 

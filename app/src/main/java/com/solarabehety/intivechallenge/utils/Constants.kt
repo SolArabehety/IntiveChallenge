@@ -1,7 +1,7 @@
 package com.solarabehety.intivechallenge.utils
 
 /**
- * Created by Sol Arabehety on 5/22/2018.
+ * Created by Sol Arabehety on 6/17/2018.
  */
 object Constants {
     const val PICTURE: String = "user_picture"

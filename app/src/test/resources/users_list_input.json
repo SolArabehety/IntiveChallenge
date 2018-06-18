@@ -1,0 +1,22 @@
+{
+  "name": {
+    "title": "miss",
+    "first": "louane",
+    "last": "vidal"
+  },
+  "email": "louane.vidal@example.com",
+  "login": {
+    "uuid": "9f07341f-c7e6-45b7-bab0-af6de5a4582d",
+    "username": "angryostrich988",
+    "password": "r2d2",
+    "salt": "B5ywSDUM",
+    "md5": "afce5fbe8f32bcec1a918f75617ab654",
+    "sha1": "1a5b1afa1d9913cf491af64ce78946d18fea6b04",
+    "sha256": "0124895aa1e6e5fb0596fad4c413602e0922e8a8c2dc758bbdb3fa070ad25a07"
+  },
+  "picture": {
+    "large": "https://randomuser.me/api/portraits/women/88.jpg",
+    "medium": "https://randomuser.me/api/portraits/med/women/88.jpg",
+    "thumbnail": "https://randomuser.me/api/portraits/thumb/women/88.jpg"
+  }
+}

@@ -17,13 +17,13 @@ import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
 
 /**
- * Created by Sol Arabehety on 6/13/2018.
+ * Created by Sol Arabehety on 6/18/2018.
  */
 class AppRepository private constructor(private val compositeDisposable: CompositeDisposable) {
     companion object : SingletonHolder<AppRepository, CompositeDisposable>(::AppRepository)
 
 
-    private val pageSize = 20
+    private val pageSize = 3
     private var currentDBPage = 0
     private var currentNetworkPage = 1 // to contemplate network errors
     private var isRequestInProgress = false
@@ -32,9 +32,9 @@ class AppRepository private constructor(private val compositeDisposable: Composi
 
     fun findUsers() {
 
-        if (currentDBPage == 0 || AppDatabase.getInstance().usersDao().getUsersQuantity() <= currentDBPage * pageSize)
+        if (AppDatabase.getInstance().usersDao().getUsersQuantity() <= currentDBPage * pageSize)
             getUsersFromServer()
-        else if (currentDBPage != 0)
+        else
             findUsersInDB()
     }
 
@@ -62,8 +62,11 @@ class AppRepository private constructor(private val compositeDisposable: Composi
     }
 
     private fun getUsersFromServer() {
-        if (!Utils.checkInternetConnection(IntiveApplication.applicationContext()))
+        if (!Utils.checkInternetConnection(IntiveApplication.applicationContext())) {
+            if (users.value == null || users.value!!.isEmpty())
+                users.postValue(emptyList()) // dispatch event to clear the progress bar
             return
+        }
 
         if (isRequestInProgress)
             return

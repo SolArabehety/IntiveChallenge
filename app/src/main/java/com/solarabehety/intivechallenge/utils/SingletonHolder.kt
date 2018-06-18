@@ -1,7 +1,7 @@
 package com.solarabehety.intivechallenge.utils
 
 /**
- * Created by Sol Arabehety on 5/24/2018.
+ * Created by Sol Arabehety on 6/18/2018.
  */
 open class SingletonHolder<out T, in A>(creator: (A) -> T) {
     private var creator: ((A) -> T)? = creator

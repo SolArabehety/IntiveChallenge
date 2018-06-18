@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 
 /**
- * Created by Sol Arabehety on 5/24/2018.
+ * Created by Sol Arabehety on 6/17/2018.
  */
 class APIClient private constructor() {
     private object Holder {

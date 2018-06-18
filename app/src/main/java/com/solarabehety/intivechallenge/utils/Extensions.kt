@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity
 
 
 /**
- * Created by Sol Arabehety on 6/12/2018.
+ * Created by Sol Arabehety on 6/17/2018.
  */
 fun AppCompatActivity.replaceFragment(fragment: Fragment, frameId: Int) {
     supportFragmentManager.inTransaction{replace(frameId, fragment)}

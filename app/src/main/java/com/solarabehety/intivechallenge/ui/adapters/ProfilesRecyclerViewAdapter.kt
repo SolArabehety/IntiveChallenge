@@ -13,7 +13,7 @@ import com.squareup.picasso.Picasso
 
 
 /**
- * Created by Sol Arabehety on 5/25/2018.
+ * Created by Sol Arabehety on 6/17/2018.
  */
 class UsersRecyclerViewAdapter(private val onItemClickListener: View.OnClickListener) :
         RecyclerView.Adapter<UsersRecyclerViewAdapter.ViewHolder>() {

@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 
 /**
- * Created by Sol Arabehety on 6/12/2018.
+ * Created by Sol Arabehety on 6/17/2018.
  */
 class GridItemDecoration(private val space: Int) : RecyclerView.ItemDecoration() {
     val COLUMN_COUNT = 2

@@ -11,7 +11,7 @@ import com.solarabehety.intivechallenge.model.User
 
 
 /**
- * Created by Sol Arabehety on 6/12/2018.
+ * Created by Sol Arabehety on 6/17/2018.
  */
 class APIUsersResponseInterceptor : Interceptor {
     private val mJSON = MediaType.parse("application/json; charset=utf-8")
@@ -39,21 +39,28 @@ class APIUsersResponseInterceptor : Interceptor {
         val usersJson = parser.parse(originalJson).asJsonObject
         val usersArray = usersJson.getAsJsonArray("results")
 
-        for (drink in usersArray) {
-            val user = parseUserObject(drink.asJsonObject)
+        for (user_ in usersArray) {
+            val user = parseUserObject(user_.asJsonObject)
             user?.let { users.add(it) }
         }
 
         return mGSON.toJson(users)
     }
 
-    private fun parseUserObject(jsonObject: JsonObject): User? {
+    fun parseUserObject(jsonObject: JsonObject): User? {
         try {
             val user = User(jsonObject.get("login").asJsonObject.get("uuid").asString)
             user.firstName = jsonObject.get("name").asJsonObject.get("first").asString
             user.lastName = jsonObject.get("name").asJsonObject.get("last").asString
-            user.email = jsonObject.get("email").asString
-            user.username = jsonObject.get("login").asJsonObject.get("username").asString
+
+            // takes email as optional
+            if (jsonObject.has("email"))
+                user.email = jsonObject.get("email").asString
+
+            // takes username as optional
+            if (jsonObject.has("login") && jsonObject.get("login").asJsonObject.has("username"))
+                user.username = jsonObject.get("login").asJsonObject.get("username").asString
+
             user.picture = jsonObject.get("picture").asJsonObject.get("large").asString
             user.thumbnail = jsonObject.get("picture").asJsonObject.get("thumbnail").asString
             return user

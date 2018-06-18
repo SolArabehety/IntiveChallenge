@@ -8,7 +8,7 @@ import io.reactivex.disposables.CompositeDisposable
 
 
 /**
- * Created by Sol Arabehety on 5/29/2018.
+ * Created by Sol Arabehety on 6/17/2018.
  */
 class UsersListViewModel(private val compositeDisposable: CompositeDisposable) : ViewModel() {
     val users: LiveData<List<User>> = AppRepository.getInstance(compositeDisposable).users
