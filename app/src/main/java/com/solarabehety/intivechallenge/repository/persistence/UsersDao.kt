@@ -1,8 +1,9 @@
 package com.solarabehety.intivechallenge.repository.persistence
 
-import android.arch.lifecycle.LiveData
 import android.arch.persistence.room.*
 import com.solarabehety.intivechallenge.model.User
+import io.reactivex.Single
+
 
 /**
  * Created by Sol Arabehety on 5/28/2018.
@@ -10,9 +11,11 @@ import com.solarabehety.intivechallenge.model.User
 @Dao
 interface UsersDao {
 
-    @Query("SELECT * FROM User")
-    fun findUsers(): LiveData<List<User>>
+    @Query("SELECT * FROM User  LIMIT :page, :pageSize")
+    fun findUsers(page : Int, pageSize : Int): Single<List<User>>
 
+    @Query("SELECT COUNT(*) FROM User")
+    fun getUsersQuantity(): Int
 
     @Query("SELECT * FROM User WHERE id = :userId")
     fun findUserById(userId: String): User

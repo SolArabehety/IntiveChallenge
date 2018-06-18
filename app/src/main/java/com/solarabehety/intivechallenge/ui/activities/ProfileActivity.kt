@@ -25,6 +25,8 @@ class ProfileActivity : AppCompatActivity() {
 
         ViewCompat.setTransitionName(ivProfile, Constants.PICTURE)
         ViewCompat.setTransitionName(backgroundColor, Constants.BACKGROUND)
+        ViewCompat.setTransitionName(patternBackground, Constants.PATTERN_BACKGROUND)
+        ViewCompat.setTransitionName(tvCompleteName, Constants.NAME)
 
         val userString = intent.getStringExtra(Constants.SELECTED_USER) ?: ""
         val userColor = intent.getIntExtra(Constants.USER_COLOR, 0)
@@ -64,7 +66,7 @@ class ProfileActivity : AppCompatActivity() {
         Picasso.get().load(model.user.picture).into(ivProfile)
 
         val completeName = model.user.firstName.capitalize() + " " + model.user.lastName.capitalize()
-        tvNameComplete.text = completeName
+        tvCompleteName.text = completeName
 
         tvUsername.text = model.user.username
         tvEmail.text = model.user.email

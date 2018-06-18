@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Intive Challenge</string>
+    <string name="server_error">Error obteniendo los datos</string>
+    <string name="action_accept">Aceptar</string>
+    <string name="email">E-mail</string>
+    <string name="username">Nombre de Usuario</string>
+</resources>

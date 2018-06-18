@@ -49,7 +49,7 @@ class APIUsersResponseInterceptor : Interceptor {
 
     private fun parseUserObject(jsonObject: JsonObject): User? {
         try {
-            val user = User(jsonObject.get("id").asJsonObject.get("value").asString)
+            val user = User(jsonObject.get("login").asJsonObject.get("uuid").asString)
             user.firstName = jsonObject.get("name").asJsonObject.get("first").asString
             user.lastName = jsonObject.get("name").asJsonObject.get("last").asString
             user.email = jsonObject.get("email").asString
@@ -58,7 +58,7 @@ class APIUsersResponseInterceptor : Interceptor {
             user.thumbnail = jsonObject.get("picture").asJsonObject.get("thumbnail").asString
             return user
         } catch (e: Exception) {
-            e.printStackTrace()
+//            e.printStackTrace()
         }
         return null
     }

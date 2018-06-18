@@ -20,6 +20,7 @@ class LauncherActivity : AppCompatActivity() {
 
         Timer("start_main", true).schedule(LAUNCHER_TIME) {
             startActivity(Intent(this@LauncherActivity, MainActivity::class.java))
+            finish()
         }
 
 

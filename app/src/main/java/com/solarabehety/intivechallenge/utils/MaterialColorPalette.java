@@ -1,4 +1,5 @@
 package com.solarabehety.intivechallenge.utils;
+
 import android.graphics.Color;
 
 import java.util.ArrayList;
@@ -59,13 +60,15 @@ public class MaterialColorPalette {
         return MATERIAL_PALETTES.get(RANDOM.nextInt(MATERIAL_PALETTES.size())).getColor(key);
     }
 
+    public static int getPositionColor(int position) {
+        return MATERIAL_PALETTES.get(position % MATERIAL_PALETTES.size()).getColor("100");
+    }
+
     /**
      * Lighten or darken a color
      *
-     * @param color
-     *     color value
-     * @param percent
-     *     -1.0 to 1.0
+     * @param color   color value
+     * @param percent -1.0 to 1.0
      * @return new shaded color
      * @see #shadeColor(String, double)
      */
@@ -76,10 +79,8 @@ public class MaterialColorPalette {
     /**
      * Lighten or darken a color
      *
-     * @param color
-     *     7 character string representing the color.
-     * @param percent
-     *     -1.0 to 1.0
+     * @param color   7 character string representing the color.
+     * @param percent -1.0 to 1.0
      * @return new shaded color
      * @see #shadeColor(int, double)
      */
@@ -100,8 +101,7 @@ public class MaterialColorPalette {
     private final HashMap<String, Integer> palette = new HashMap<>();
 
     /**
-     * @param primary
-     *     the 500 color
+     * @param primary the 500 color
      */
     public MaterialColorPalette(int primary) {
         palette.put("50", shadeColor(primary, 0.9));

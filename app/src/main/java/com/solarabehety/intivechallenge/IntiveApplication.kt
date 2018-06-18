@@ -5,6 +5,9 @@ import android.content.Context
 import com.facebook.stetho.Stetho
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import okhttp3.OkHttpClient
+import android.os.StrictMode
+
+
 
 /**
  * Created by Sol Arabehety on 6/12/2018.
@@ -24,9 +27,27 @@ class IntiveApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        Stetho.initializeWithDefaults(this)
-        OkHttpClient.Builder()
-                .addNetworkInterceptor(StethoInterceptor())
-                .build()
+        if (BuildConfig.DEBUG) {
+
+            Stetho.initializeWithDefaults(this)
+            OkHttpClient.Builder()
+                    .addNetworkInterceptor(StethoInterceptor())
+                    .build()
+
+
+            StrictMode.setThreadPolicy(StrictMode.ThreadPolicy.Builder()
+                    .detectDiskReads()
+                    .detectDiskWrites()
+                    .detectNetwork()
+                    .penaltyLog()
+                    .build())
+
+            StrictMode.setVmPolicy(StrictMode.VmPolicy.Builder()
+                    .detectLeakedSqlLiteObjects()
+                    .detectLeakedClosableObjects()
+                    .penaltyLog()
+                    .penaltyDeath()
+                    .build())
+        }
     }
 }

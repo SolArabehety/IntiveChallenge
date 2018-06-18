@@ -1,8 +1,11 @@
 <resources>
-    <string name="app_name">IntiveChallenge</string>
-    <string name="image_profile_transition">profile</string>
+    <string name="app_name">Intive Challenge</string>
+    <string name="image_profile_transition" translatable="false">profile</string>
     <string name="server_error">Server Error</string>
     <string name="action_accept">Accept</string>
     <string name="email">E-mail</string>
     <string name="username">Username</string>
+    <string name="retry">Retry</string>
+    <string name="no_users">No users found</string>
+    <string name="no_connection">There is no internet connection</string>
 </resources>

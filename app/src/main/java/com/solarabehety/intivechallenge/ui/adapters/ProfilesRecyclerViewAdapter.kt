@@ -15,8 +15,8 @@ import com.squareup.picasso.Picasso
 /**
  * Created by Sol Arabehety on 5/25/2018.
  */
-class MyWorkOrdersRecyclerViewAdapter(private val onItemClickListener: View.OnClickListener) :
-        RecyclerView.Adapter<MyWorkOrdersRecyclerViewAdapter.ViewHolder>() {
+class UsersRecyclerViewAdapter(private val onItemClickListener: View.OnClickListener) :
+        RecyclerView.Adapter<UsersRecyclerViewAdapter.ViewHolder>() {
     private var dataSet: List<User> = emptyList()
 
     class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
@@ -37,7 +37,7 @@ class MyWorkOrdersRecyclerViewAdapter(private val onItemClickListener: View.OnCl
         val completeName = dataSet[position].firstName.capitalize() + " " + dataSet[position].lastName.capitalize()
         viewHolder.tvCompleteName.text = completeName
 
-        val randomColor = MaterialColorPalette.getRandomColor("100")
+        val randomColor = MaterialColorPalette.getPositionColor(position)
         viewHolder.itemView.setBackgroundColor(randomColor)
 
         viewHolder.itemView.tag = dataSet[position]

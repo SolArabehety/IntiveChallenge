@@ -10,4 +10,5 @@ object Constants {
     const val USER_COLOR: String = "user_color"
     const val NAME: String = "user_name"
     const val BACKGROUND: String = "user_background"
+    const val PATTERN_BACKGROUND: String = "pattern_background"
 }
