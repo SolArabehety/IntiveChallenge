@@ -23,7 +23,7 @@ class AppRepository private constructor(private val compositeDisposable: Composi
     companion object : SingletonHolder<AppRepository, CompositeDisposable>(::AppRepository)
 
 
-    private val pageSize = 3
+    private val pageSize = 20
     private var currentDBPage = 0
     private var currentNetworkPage = 1 // to contemplate network errors
     private var isRequestInProgress = false
